@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+       function getdata(){
+
+        var name=document.getElementById("name").value;
+        var age=parseInt(document.getElementById("age").value);
+        var email=document.getElementById("email").value;
+        var pass=document.getElementById("pass").value;
+        var dob=document.getElementById("dob").value;
+        var gender = document.querySelector('input[name="gender"]:checked').value;
+
+        var phone=document.getElementById("phone").value;
+        var zip=document.getElementById("zip").value;
+
+        var course = [];
+        if (document.getElementById("c1").checked) {
+            course.push(document.getElementById("c1").value);
+        }
+        if (document.getElementById("c2").checked) {
+            course.push(document.getElementById("c2").value);
+        }
+        if (document.getElementById("c3").checked) {
+            course.push(document.getElementById("c3").value);
+        }
+        var fees=document.getElementById("fee").value;
+
+
+                localStorage.setItem("d1",name)
+                localStorage.setItem("d2",age)
+                localStorage.setItem("d3",email)
+                localStorage.setItem("d4",pass)
+                localStorage.setItem("d5",dob)
+                localStorage.setItem("d6",gender)
+                localStorage.setItem("d7",phone)
+                localStorage.setItem("d8",zip)
+                localStorage.setItem("d9", course.join(", "));
+                localStorage.setItem("d10",fees)
+
+        if(name==="")
+        {
+            alert("Name can not be blank")
+            return
+        }
+        if(age<=21)
+        {
+            alert("Age should be above 21")
+        }
+       
+        var pattern=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+        if(!email.match(pattern))
+        {
+            alert("Invalid email")
+            return
+        }
+        
+        var phoneno = /^\d{10}$/
+        if(!phone.match(phoneno))
+        {
+            alert("Please enter 10 digit number")
+            return
+        }
+        var zipcode = /^\d{6}$/
+        if(!zip.match(zipcode))
+        {
+            alert("Plaese enter 6 digit zipcode")
+            return
+        }
+               
+       }
+    </script>
+    
+</head>
+<body>
+    <form name="myform" method="get" action="display.html">
+        UserName:
+        <input type="text" id="name" name="name1" required></br></br>
+        Age:
+        <input type="text" id="age" name="age1" required></br></br>
+        Email:
+        <input type="text" id="email" name="email1" required></br></br>
+        Password:
+        <input type="password" id="pass" name="pass1" required></br></br>
+        DOB:
+        <input type="date" id="dob" name="dob1" required></br></br>
+        Gender:
+        <input type="radio" id="m" name="gender" value="male">Male
+        <input type="radio" id="f" name="gender" value="female">Female</br></br>
+        Phone_No:
+        <input type="text" id="phone" name="phone1" required><br><br>
+        Zip Code:
+        <input type="text" name="Zip1" id="zip" required><br><br>
+        Course:
+        <input type="checkbox" id="c1" name="dac" value="dac">Dac
+        <input type="checkbox" id="c2" name="ditiss" value="ditiss">ditiss
+        <input type="checkbox" id="c3" name="dbda" value="dbda">dbda <br><br>
+        Fees:
+        <select id="fee" name="collage fee" size="2">
+            <option value="hundred">hundred</option>
+            <option value="thousand">thousand</option>
+        </select><br><br>
+
+        <button type="submit" id="btn" name="btn" onclick="getdata()">Submit</button>
+    </form>
+   
+</body>
+</html>

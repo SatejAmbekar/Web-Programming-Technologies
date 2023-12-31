@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Display</title>
+</head>
+<body>
+<div>
+    Name:<span id="myname"></span><br>
+    age:<span id="myage"></span><br>
+    email:<span id="myemail"></span><br>
+    pass:<span id="mypass"></span><br>
+    dob:<span id="mydob"></span><br>
+    Gender:<span id="myGender"></span><br>
+    phone:<span id="myphone"></span><br>
+    zip:<span id="myzip"></span><br>
+    course:<span id="mycourse"></span><br>
+    fees:<span id="myfees"></span><br>
+
+</div>
+<script>
+    var name=localStorage.getItem("d1")
+    var age=localStorage.getItem("d2")
+    var email=localStorage.getItem("d3")
+    var pass=localStorage.getItem("d4")
+   var dob= localStorage.getItem("d5")
+    var Gender=localStorage.getItem("d6")
+    var phone=localStorage.getItem("d7")
+    var zip=localStorage.getItem("d8")
+    var course=localStorage.getItem("d9")
+    var fees=localStorage.getItem("d10")
+
+    document.getElementById("myname").innerHTML=name
+    document.getElementById("myage").innerHTML=age
+    document.getElementById("myemail").innerHTML=email
+    document.getElementById("mypass").innerHTML=pass
+    document.getElementById("mydob").innerHTML=dob
+    document.getElementById("myGender").innerHTML=Gender
+    document.getElementById("myphone").innerHTML=phone
+    document.getElementById("myzip").innerHTML=zip
+    document.getElementById("mycourse").innerHTML=course
+    document.getElementById("myfees").innerHTML=fees
+
+</script>
+</body>
+</html>
