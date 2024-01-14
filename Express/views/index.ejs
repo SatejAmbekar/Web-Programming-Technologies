@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        th, td {
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even){background-color: #f2f2f2}
+        
+        th {
+          background-color: #04AA6D;
+          color: white;
+        }
+        .button {
+              background-color: #04AA6D; /* Green */
+              border: none;
+              color: white;
+              padding: 15px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+              width: 250px;
+
+        }
+
+        </style>
+</head>
+<body>
+    <header>
+        <h1>Product Management system</h1>
+    </header>
+    <div>
+        <table border="2">
+            <tr>
+                <th>Product id</th>
+                <th>Name</th>
+                <th>qty</th>
+                <th>price</th>
+                <th>action</th>
+            </tr>
+            <% for(var i=0;i<proddata.length;i++){%>
+               <tr>
+                    <td><%=proddata[i].pid%></td>
+                    <td><%=proddata[i].pname%></td>
+                    <td><%=proddata[i].qty%></td>
+                    <td><%=proddata[i].price%></td>
+                    <td><a href="/deleteprod/<%=proddata[i].pid%>">delete</a></td>
+                </tr>
+            <%}%>
+        </table>
+    </div>
+    <hr/>
+    <form action="/addproduct">
+        <div>
+        <button type="submit" name="add"id="add" value="add" class="button">add new product</button>
+        </div>
+    </form>
+</body>
+</html>
