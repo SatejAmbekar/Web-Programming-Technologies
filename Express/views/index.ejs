@@ -35,7 +35,7 @@
               width: 250px;
 
         }
-                a:link {
+        a:link {
         color: green;
         background-color: transparent;
         text-decoration: none;
@@ -47,10 +47,11 @@
         text-decoration: underline;
         }
 
+
         </style>
 </head>
 <body>
-    <header>
+    <header >
         <h1>Product Management system</h1>
     </header>
     <div>
@@ -59,8 +60,9 @@
                 <th>Product id</th>
                 <th>Name</th>
                 <th>qty</th>
-                <th>price</th>
-                <th>action</th>
+                <th>Price</th>
+                <th>Delete</th>
+                <th>Update</th>
             </tr>
             <% for(var i=0;i<proddata.length;i++){%>
                <tr>
@@ -68,7 +70,8 @@
                     <td><%=proddata[i].pname%></td>
                     <td><%=proddata[i].qty%></td>
                     <td><%=proddata[i].price%></td>
-                    <td><a href="/deleteprod/<%=proddata[i].pid%>">delete</a></td>
+                    <td><a href="/deleteprod/<%=proddata[i].pid%>">Delete</a></td>
+                    <td><a href="/updateprod/<%=proddata[i].pid%>">Update</a></td>
                 </tr>
             <%}%>
         </table>

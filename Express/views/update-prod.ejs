@@ -66,14 +66,14 @@
 
 <body>
     <h2>Enter Product Deatils</h2>
-    <div class="container">
-        <form action="/insertprod" method="post">
+    <div class="container" >
+        <form action="/updateproduct" method="post">
             <div class="row">
                 <div class="col-25">
                     <label for="pid">Product id: </label>
                 </div>
                 <div class="col-75">
-                    <input type="text" name="pid" id="pid" placehoder="Enter pid"><br>
+                    <input type="text" name="pid" id="pid" value="<%=pdata[0].pid%>" readonly><br>
                 </div>
             </div>
             <div class="row">
@@ -81,7 +81,7 @@
                     <label for="pname">Product name: </label>
                 </div>
                 <div class="col-75">
-                    <input type="text" name="pname" id="pname" placehoder="Enter pname"><br>
+                    <input type="text" name="pname" id="pname" value= "<%=pdata[0].pname%>" ><br>
                 </div>
             </div>
             <div class="row">
@@ -89,7 +89,7 @@
                     <label for="qty">Product qty: </label>
                 </div>
                 <div class="col-75">
-                    <input type="text" name="qty" id="qty" placehoder="Enter qty"><br>
+                    <input type="text" name="qty" id="qty" value="<%=pdata[0].qty%>" placehoder="<%=pdata[0].qty%>"><br>
                 </div>
             </div>
             <div class="row">
@@ -97,14 +97,14 @@
                     <label for="price">Product price: </label>
                 </div>
                 <div class="col-75">
-                    <input type="text" name="price" id="price" placehoder="Enter price"><br>
+                    <input type="text" name="price" id="price" value="<%=pdata[0].price%>" placehoder="<%=pdata[0].price%>"><br>
                 </div>
             </div>
             <br>
             <div class="row">
-                <input type="submit" name="btn" id="btn" value="Add Product">Add new Product</button>
+                <input type="submit" name="btn" id="btn" value="Update Product"></button>
             </div>
-        </form>
+        </form> 
     </div>
 </body>
 
