@@ -12,6 +12,7 @@ myrouter.get("/products",function(req,resp){
         else{
             //to create table view using data, write file
             //index.ejs in view folder, to access the file write as follows
+            //console.log(data[0].pid+" "+data[0].pname+" "+data[0].qty);
             resp.render("index",{proddata:data})
         }
     })
@@ -43,9 +44,29 @@ myrouter.get("/deleteprod/:prodid",function(req,resp){
             resp.redirect("/products")
         }
     })
-})
+});
 
+myrouter.get("/updateprod/:prodid",(req,resp) =>{
+    connection.query("select * from products where pid=?",[req.params.prodid],(err,data,fileds)=>{
+        if(err){
+            resp.status(500).send("no data found");
+        }else{
+            //console.log(data.pid+" "+data.pname+" "+data.qty);
+            resp.render("update-prod",{pdata:data});
+        }
+    })
+});
 
+myrouter.post("/updateproduct",(req,resp)=>{
+    connection.query("update products set pname=?,qty=?,price=? where pid=?",[req.body.pname,req.body.qty,req.body.price,req.body.pid],(err,result)=>{
+        if(err){
+            resp.status(500).send("Failed to update");
+            console.log(err);
+        }else{
+            resp.redirect("/products")
+        }
+    })
+});
 
 //it will pass the reference of myrouter in router variable of app.js file
 module.exports=myrouter;
